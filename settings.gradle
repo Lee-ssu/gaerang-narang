@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories { google(); mavenCentral(); gradlePluginPortal() }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        if (System.getenv('GAERANG_PLEOS_MAVEN')) {
+            maven { url = uri(System.getenv('GAERANG_PLEOS_MAVEN')) }
+        }
+        maven {
+            url = uri('https://nexus-playground.pleos.ai/repository/maven-releases/')
+            content { includeGroup('ai.pleos.playground') }
+        }
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = 'Gaerang'
+include ':app'

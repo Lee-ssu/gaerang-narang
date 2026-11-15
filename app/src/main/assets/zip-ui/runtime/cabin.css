@@ -1,0 +1,450 @@
+.cabin-pane {
+  --cabin-surface: #FFFFFF;
+  --cabin-paper: #F6F1EA;
+  --cabin-ink: #2A201A;
+  --cabin-muted: #6F6257;
+  --cabin-accent: #8A5A3C;
+  --cabin-tint: #F3E3D0;
+  --cabin-divider: #E9DFD2;
+  --cabin-warning: #983520;
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 28px;
+  background: rgba(42, 32, 26, .38);
+  color: var(--cabin-ink);
+  line-height: 1.4;
+}
+
+.cabin-pane [hidden], .cabin-pane[hidden] {
+  display: none;
+}
+
+.cabin-surface {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: min(100%, 720px);
+  max-height: 100%;
+  gap: 22px;
+  min-width: 0;
+  min-height: 0;
+  padding: 28px;
+  overflow: hidden;
+  border-radius: 36px;
+  background: var(--cabin-surface);
+  box-shadow: 0 16px 38px rgba(42, 32, 26, .24);
+}
+
+.cabin-wide.cabin-climate-modal .cabin-surface {
+  width: min(100%, 940px);
+}
+
+.cabin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  gap: 18px;
+  min-width: 0;
+  padding: 2px 0;
+}
+
+.cabin-title {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.cabin-title:focus {
+  outline: none;
+}
+
+.cabin-header .cabin-button {
+  flex: none;
+  min-width: 106px;
+}
+
+.cabin-content {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  align-items: start;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #D9CBB9 transparent;
+}
+
+.cabin-wide.cabin-climate-modal .cabin-content.cabin-multiple {
+  grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
+}
+
+.cabin-setting {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: center;
+  gap: 12px 14px;
+  padding: 20px 0;
+}
+
+.cabin-setting + .cabin-setting {
+  border-block-start: 1px solid var(--cabin-divider);
+}
+
+.cabin-setting-prominent {
+  gap: 18px 14px;
+  padding: 28px;
+  background: var(--cabin-tint);
+  border-radius: 36px;
+}
+
+.cabin-additional {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0 12px;
+  border-radius: 36px;
+  background: var(--cabin-surface);
+}
+
+.cabin-setting-meta {
+  min-width: 0;
+}
+
+.cabin-setting-title,
+.cabin-zone,
+.cabin-feedback {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.cabin-setting-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+
+.cabin-setting-prominent .cabin-setting-title {
+  font-size: 26px;
+}
+
+.cabin-zone {
+  margin-block-start: 5px;
+  color: var(--cabin-muted);
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.cabin-value {
+  color: var(--cabin-ink);
+  font-size: 24px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.cabin-setting-prominent .cabin-value {
+  grid-column: 1 / -1;
+  margin-block: -4px 1px;
+  font-size: 64px;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+}
+
+.cabin-feedback {
+  grid-column: 1 / -1;
+  min-width: 0;
+  color: var(--cabin-muted);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.cabin-feedback-error {
+  color: var(--cabin-warning);
+  font-weight: 700;
+}
+
+.cabin-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cabin-button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 66px;
+  min-height: 60px;
+  border: 2px solid var(--cabin-divider);
+  border-radius: 39px;
+  padding: 8px 18px;
+  background: var(--cabin-surface);
+  color: var(--cabin-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.cabin-button-step {
+  font-size: 26px;
+}
+
+.cabin-button-primary {
+  background: var(--cabin-ink);
+  border-color: var(--cabin-ink);
+  color: var(--cabin-surface);
+}
+
+.cabin-button:focus-visible {
+  outline: 3px solid var(--cabin-accent);
+  outline-offset: 3px;
+}
+
+.cabin-button:active:not(:disabled) {
+  filter: brightness(.9);
+}
+
+.cabin-button:disabled {
+  border-color: #D9CBB9;
+  background: var(--cabin-paper);
+  color: var(--cabin-muted);
+  cursor: default;
+}
+
+.cabin-setting-prominent .cabin-actions > .cabin-button {
+  flex: 1 1 0;
+  min-height: 70px;
+}
+
+.cabin-window-modal .cabin-content {
+  gap: 0;
+}
+
+.cabin-window-modal .cabin-setting-prominent {
+  padding: 20px;
+  border-radius: 26px;
+}
+
+.cabin-window-modal .cabin-setting-prominent .cabin-value {
+  grid-column: auto;
+  margin: 0;
+  font-size: 42px;
+}
+
+.cabin-window-modal .cabin-additional {
+  padding: 0;
+  border-radius: 0;
+}
+
+.cabin-window-modal:has(.cabin-preset-editor:not([hidden])) .cabin-additional {
+  display: none;
+}
+
+.cabin-window-modal .cabin-additional .cabin-setting {
+  padding: 18px 4px 4px;
+}
+
+.cabin-window-modal .cabin-additional .cabin-actions {
+  grid-column: auto;
+  grid-row: 2;
+}
+
+.cabin-window-modal .cabin-additional .cabin-value {
+  color: var(--cabin-accent);
+}
+
+.cabin-actions-window {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.cabin-window-presets,
+.cabin-preset-slots,
+.cabin-preset-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.cabin-window-presets .cabin-button {
+  min-height: 68px;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.cabin-window-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cabin-window-tools .cabin-button {
+  min-height: 56px;
+  padding-inline: 14px;
+  font-size: 17px;
+}
+
+.cabin-button-alert {
+  color: var(--cabin-accent);
+}
+
+.cabin-preset-editor {
+  display: grid;
+  gap: 12px;
+  padding-block-start: 14px;
+  border-block-start: 1px solid #D9CBB9;
+}
+
+.cabin-preset-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.cabin-preset-slots .cabin-button,
+.cabin-preset-choices .cabin-button {
+  min-height: 52px;
+  padding-inline: 10px;
+  font-size: 17px;
+}
+
+.cabin-preset-choices {
+  grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+  max-height: 204px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #D9CBB9 transparent;
+}
+
+.cabin-preset-editor > .cabin-button {
+  justify-self: start;
+  min-width: 104px;
+}
+
+.cabin-window-presets .cabin-button[aria-pressed="true"],
+.cabin-preset-editor .cabin-button[aria-pressed="true"] {
+  border-color: var(--cabin-accent);
+  background: var(--cabin-surface);
+  color: var(--cabin-accent);
+}
+
+.cabin-pane:is([data-alert-phase=countdown], [data-alert-phase=failed]) .cabin-title {
+  color: #B8361F;
+}
+
+.cabin-raise {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.cabin-raise-description {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.cabin-raise-clock {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cabin-raise-count {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 96px;
+  height: 96px;
+  box-sizing: border-box;
+  border: 8px solid #B8361F;
+  border-radius: 50%;
+  color: #B8361F;
+  font-size: 48px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.cabin-raise-caption {
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.cabin-raise-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cabin-raise-buttons .cabin-button {
+  min-height: 72px;
+  font-size: 20px;
+}
+
+.cabin-raise-buttons .cabin-button-warning {
+  flex: 1;
+  border-color: #B8361F;
+  background: #B8361F;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .host-motion-enabled .cabin-pane {
+    animation: cabin-backdrop-in 310ms ease-out both;
+  }
+
+  .host-motion-enabled .cabin-pane .cabin-surface {
+    animation: cabin-popup-in 360ms cubic-bezier(.2, .75, .2, 1) both;
+  }
+
+  .host-motion-enabled .cabin-window-modal .cabin-raise:not([hidden]),
+  .host-motion-enabled .cabin-window-modal .cabin-preset-editor:not([hidden]) {
+    animation: cabin-content-in 280ms ease-out both;
+  }
+
+  .host-motion-enabled .cabin-button {
+    transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, transform 140ms ease;
+  }
+
+  .host-motion-enabled .cabin-button:active:not(:disabled) {
+    transform: scale(.95);
+  }
+}
+
+@keyframes cabin-backdrop-in {
+  from { background-color: rgba(42, 32, 26, 0); }
+  to { background-color: rgba(42, 32, 26, .38); }
+}
+
+@keyframes cabin-popup-in {
+  from { opacity: .38; transform: translateY(46px) scale(.93); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes cabin-content-in {
+  from { opacity: .52; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}

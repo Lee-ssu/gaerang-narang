@@ -1,0 +1,35 @@
+<resources>
+    <style name="GaerangTheme" parent="android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">#F6F4EB</item>
+        <item name="android:navigationBarColor">#F6F4EB</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowBackground">#F6F4EB</item>
+        <item name="android:colorAccent">#8A5A3C</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:alertDialogTheme">@style/GaerangDialogTheme</item>
+    </style>
+
+    <style name="GaerangDialogTheme" parent="android:style/Theme.Material.Light.Dialog.Alert">
+        <item name="android:colorAccent">#8A5A3C</item>
+        <item name="android:textColorPrimary">#2A201A</item>
+        <item name="android:textColorSecondary">#6F6257</item>
+        <item name="android:fontFamily">@font/noto_kr_regular</item>
+        <item name="android:backgroundDimAmount">0.26</item>
+        <item name="android:windowAnimationStyle">@style/GaerangDialogAnimation</item>
+    </style>
+
+    <style name="GaerangDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/gaerang_dialog_enter</item>
+        <item name="android:windowExitAnimation">@anim/gaerang_dialog_exit</item>
+    </style>
+
+    <style name="GaerangDarkDialogTheme" parent="android:style/Theme.Material.Dialog.Alert">
+        <item name="android:colorAccent">#E2AC7E</item>
+        <item name="android:textColorPrimary">#F4EDE4</item>
+        <item name="android:textColorSecondary">#B8AB9D</item>
+        <item name="android:fontFamily">@font/noto_kr_regular</item>
+        <item name="android:backgroundDimAmount">0.36</item>
+        <item name="android:windowAnimationStyle">@style/GaerangDialogAnimation</item>
+    </style>
+</resources>

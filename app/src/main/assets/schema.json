@@ -1,0 +1,84 @@
+{
+  "packageName": "kr.gaerang",
+  "appDescription": "Find dog-friendly outings, send a verified place to in-car navigation, and track car rides with a dog.",
+  "version": "0.1",
+  "actionCalls": [
+    {
+      "component": "activity",
+      "function": {
+        "name": "GAERANG_FIND_PLACES",
+        "description": "Find places compatible with the active dog profiles in Gaerang Narang.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "description": "Type of place to find.",
+              "enum": [
+                "FIELD",
+                "CAFE",
+                "SEA",
+                "REST",
+                "CHARGE"
+              ]
+            },
+            "indoor": {
+              "type": "boolean",
+              "description": "Whether to require indoor dog access for cafes."
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    {
+      "component": "activity",
+      "function": {
+        "name": "GAERANG_NAVIGATE",
+        "description": "Send a place from the latest Gaerang Narang search to navigation, optionally with a compatible dog-friendly cafe.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "placeId": {
+              "type": "string",
+              "description": "Identifier returned in the previous search results."
+            },
+            "choice": {
+              "type": "integer",
+              "description": "One-based number of the place selected by the user."
+            },
+            "addCafe": {
+              "type": "boolean",
+              "description": "Append the nearest cafe with confirmed indoor access for the active dogs when requested."
+            }
+          },
+          "required": []
+        }
+      }
+    },
+    {
+      "component": "activity",
+      "function": {
+        "name": "GAERANG_START_RIDE",
+        "description": "Start dog ride tracking in Gaerang Narang from Park.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    },
+    {
+      "component": "activity",
+      "function": {
+        "name": "GAERANG_FINISH_RIDE",
+        "description": "End dog ride tracking in Gaerang Narang from Park.",
+        "parameters": {
+          "type": "object",
+          "properties": {},
+          "required": []
+        }
+      }
+    }
+  ]
+}

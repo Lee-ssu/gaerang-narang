@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'kr.gaerang'
+    compileSdk 35
+    buildFeatures { buildConfig true }
+    defaultConfig {
+        applicationId 'kr.gaerang'
+        minSdk 28
+        targetSdk 33
+        versionCode 1
+        versionName '0.1'
+        buildConfigField 'boolean', 'CONTEST_SHOWCASE',
+            providers.gradleProperty('gaerangShowcase').map { it == 'true' }.orElse(false).get().toString()
+    }
+    buildTypes {
+        debug {
+            buildConfigField 'String', 'OUTING_PRESENCE_URL', '"http://127.0.0.1:8765"'
+        }
+        release {
+            def endpoint = providers.gradleProperty('gaerangPresenceUrl').orElse('').get()
+            if (endpoint && !(endpoint ==~ /https:\/\/[A-Za-z0-9.-]+(?::[0-9]+)?/)) {
+                throw new GradleException('gaerangPresenceUrl must be an HTTPS origin')
+            }
+            buildConfigField 'String', 'OUTING_PRESENCE_URL', '"' + endpoint + '"'
+        }
+    }
+    useLibrary 'android.car'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+}
+
+dependencies {
+    implementation 'ai.pleos.playground:Vehicle:2.3.2'
+    implementation 'ai.pleos.playground:NaviHelper:3.0.5'
+    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:2.0.21'
+}

@@ -1,0 +1,11 @@
+.gradle/
+.kotlin/
+local.properties
+**/build/
+
+.DS_Store
+*.jks
+*.keystore
+*.p12
+*.apk.idsig
+release-signing/

@@ -1,0 +1,146 @@
+.gaerang-appearance {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  flex: none;
+  border-radius: 28px;
+  background: #ffffff;
+}
+.gaerang-appearance-label {
+  padding: 0 8px 0 11px;
+  color: #6f6257;
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.gaerang-appearance button {
+  box-sizing: border-box;
+  min-height: 48px;
+  min-width: 62px;
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  color: #2a201a;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.gaerang-appearance button[aria-pressed="true"] {
+  background: #2a201a;
+  color: #ffffff;
+}
+.gaerang-appearance button:focus-visible {
+  outline: 2px solid #8a5a3c;
+  outline-offset: 1px;
+}
+.host-compact .gaerang-appearance-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.host-compact.gaerang-profile > section:first-of-type > div:nth-child(2) {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: 8px !important;
+}
+.host-compact.gaerang-profile > section:first-of-type > div:nth-child(2) > div {
+  grid-column: 1 / -1;
+}
+.host-compact.gaerang-profile > section:first-of-type > div:nth-child(2) > button {
+  min-width: 0;
+  padding-inline: 12px !important;
+}
+.host-compact.gaerang-profile > section:first-of-type > div:nth-child(2) > button > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html.gaerang-night,
+html.gaerang-night body {
+  color-scheme: dark;
+  background: #15120f;
+}
+.gaerang-night-board {
+  --gaerang-paper: #15120f;
+  --gaerang-surface: #231e1a;
+  --gaerang-tint: #3a2d23;
+  --gaerang-tint-ink: #ead6bd;
+  --gaerang-ink: #f4ede4;
+  --gaerang-white-ink: #fff7ec;
+  --gaerang-filled: #dfb68f;
+  --gaerang-on-fill: #281b14;
+  --gaerang-muted: #b8ab9d;
+  --gaerang-line: #3a322b;
+  --gaerang-boundary: #635346;
+  --gaerang-accent: #e2ac7e;
+  --gaerang-accent-fill: #c38f64;
+  --gaerang-fur: #c98b5b;
+  --gaerang-warning: #ff8e74;
+  --gaerang-warning-fill: #963c2b;
+  --gaerang-warning-tint: #43201a;
+  --gaerang-red-accent: #e8674a;
+}
+.gaerang-night-board [data-gaerang-filled] {
+  --gaerang-white-ink: var(--gaerang-on-fill);
+}
+.gaerang-night-board .gaerang-appearance,
+.gaerang-night-board :is(.host-care-pill, .host-float-actions) {
+  background: var(--gaerang-surface);
+}
+.gaerang-night-board .gaerang-appearance-label {
+  color: var(--gaerang-muted);
+}
+.gaerang-night-board :is(.gaerang-appearance button, .host-care-pill) {
+  color: var(--gaerang-ink);
+}
+.gaerang-night-board :is(.gaerang-appearance button[aria-pressed="true"], .host-care-play,
+    .host-control.primary, .host-control[aria-pressed="true"]) {
+  background: var(--gaerang-filled);
+  color: var(--gaerang-on-fill);
+  border-color: var(--gaerang-filled);
+}
+.gaerang-night-board .host-control:not(.primary):not([aria-pressed="true"]) {
+  color: var(--gaerang-ink);
+  background: var(--gaerang-tint);
+  border-color: var(--gaerang-boundary);
+}
+.gaerang-night-board :is(.cabin-raise-count,
+    .cabin-pane:is([data-alert-phase=countdown], [data-alert-phase=failed]) .cabin-title) {
+  color: var(--gaerang-warning);
+}
+.gaerang-night-board .host-cabin-chevron {
+  color: var(--gaerang-accent);
+}
+.gaerang-night-board :is(.gaerang-appearance button, .host-care-pill, .host-care-play,
+    .host-control, .host-clickable):focus-visible {
+  outline-color: var(--gaerang-accent);
+}
+.gaerang-night-board .cabin-pane {
+  --cabin-surface: var(--gaerang-surface);
+  --cabin-paper: var(--gaerang-paper);
+  --cabin-ink: var(--gaerang-ink);
+  --cabin-muted: var(--gaerang-muted);
+  --cabin-accent: var(--gaerang-accent);
+  --cabin-tint: var(--gaerang-tint);
+  --cabin-divider: var(--gaerang-boundary);
+  --cabin-warning: var(--gaerang-warning);
+}
+.gaerang-night-board :is(.cabin-pane, .host-scroll) {
+  scrollbar-color: var(--gaerang-boundary) transparent;
+}
+.gaerang-night-board :is(.cabin-preset-editor, .cabin-button:disabled) {
+  border-color: var(--gaerang-boundary);
+}
+.gaerang-night-board .cabin-raise-count {
+  border-color: var(--gaerang-warning);
+}
+.gaerang-night-board .cabin-raise-buttons .cabin-button-warning {
+  border-color: var(--gaerang-warning);
+  background: var(--gaerang-warning);
+  color: var(--gaerang-on-fill);
+}
